@@ -21,32 +21,32 @@ import {
 // ];
 
 const babyNames = [
-"Ronald",
-"Richard",
-"Barry",
-"Rupert",
-"Lionel",
-"Charles",
-"Charlie",
-"Michael",
-"Austin",
-"Stuart",
-"Robert",
-"Edwin",
-"Ian",
-"John",
-"Andrew",
-"Taylor",
-"Cyril",
-"Lucas",
-"Tate",
-"Logan",
-"James",
-"Henry",
-"Harry",
-"Daniel",
-"David",
-"Jamie",
+  "Ronald",
+  "Richard",
+  "Barry",
+  "Rupert",
+  "Lionel",
+  "Charles",
+  "Charlie",
+  "Michael",
+  "Austin",
+  "Stuart",
+  "Robert",
+  "Edwin",
+  "Ian",
+  "John",
+  "Andrew",
+  "Taylor",
+  "Cyril",
+  "Lucas",
+  "Tate",
+  "Logan",
+  "James",
+  "Henry",
+  "Harry",
+  "Daniel",
+  "David",
+  "Jamie",
 ];
 
 const BabyNamesSwipe = () => {
@@ -84,7 +84,7 @@ const BabyNamesSwipe = () => {
     setIsDragging(true);
     const startX = e.clientX;
     let currentOffset = 0;
-    
+
     const handleMouseMove = (e) => {
       const currentX = e.clientX;
       const diff = currentX - startX;
@@ -112,7 +112,7 @@ const BabyNamesSwipe = () => {
     setIsDragging(true);
     const startX = e.touches[0].clientX;
     let currentOffset = 0;
-    
+
     const handleTouchMove = (e) => {
       const currentX = e.touches[0].clientX;
       const diff = currentX - startX;
@@ -160,7 +160,7 @@ const BabyNamesSwipe = () => {
     <Container>
       <AppWrapper>
         <Title>Baby Names 💕</Title>
-        
+
         <CardContainer>
           {isFinished ? (
             <FinishedContainer>
@@ -173,19 +173,22 @@ const BabyNamesSwipe = () => {
                   <div>
                     <h1>Matching names</h1>
                     <h2>These are the names you both agreed on!</h2>
-                  <MatchedNamesContainer>
-                    {matchingNames.map((name) => <MatchedName key={name}>{name}</MatchedName>)}
-                  </MatchedNamesContainer>
+                    <MatchedNamesContainer>
+                      {matchingNames.length === 0
+                        ? <p>You didn't match a single name!</p>
+                        : matchingNames.map((name) => <MatchedName key={name}>{name}</MatchedName>)
+                      }
+                    </MatchedNamesContainer>
                   </div>
                 )
-                :
-                <>
-                  <Button onClick={() => handleShare()}><Share size={40}/>Share with a partner</Button>
-                  {showCopyToClipboard && <p>Link copied! Paste it in a message to them and see which names you both like!</p>}
-                  <Button onClick={resetApp}>
-                    <RotateCcw size={40} />
-                    Start Over
-                  </Button>
+                  :
+                  <>
+                    <Button onClick={() => handleShare()}><Share size={40} />Share with a partner</Button>
+                    {showCopyToClipboard && <p>Link copied! Paste it in a message to them and see which names you both like!</p>}
+                    <Button onClick={resetApp}>
+                      <RotateCcw size={40} />
+                      Start Over
+                    </Button>
                   </>
                 }
               </FinishedCard>
@@ -199,7 +202,7 @@ const BabyNamesSwipe = () => {
                   </BackgroundNameText>
                 </BackgroundCard>
               )}
-              
+
               <Card
                 dragOffset={dragOffset}
                 isDragging={isDragging}
@@ -207,7 +210,7 @@ const BabyNamesSwipe = () => {
                 onTouchStart={handleTouchStart}
               >
                 <NameText>{currentName}</NameText>
-                
+
                 {dragOffset > 50 && (
                   <SwipeIndicator direction="right">LIKE</SwipeIndicator>
                 )}
@@ -241,25 +244,25 @@ const BabyNamesSwipe = () => {
 
         {!isFinished && (
           <LikedNamesContainer>
-          <LikedNamesTitle>
-            <Heart color="#ef4444" size={20} />
-            Liked Names ({likedNames.length})
-          </LikedNamesTitle>
-          
-          {likedNames.length === 0 ? (
-            <EmptyState>
-              No names liked yet. Start swiping right! 👉
-            </EmptyState>
-          ) : (
-            <NamesGrid>
-              {likedNames.map((name, index) => (
-                <NameTag key={index}>
-                  {name}
-                </NameTag>
-              ))}
-            </NamesGrid>
-          )}
-        </LikedNamesContainer>
+            <LikedNamesTitle>
+              <Heart color="#ef4444" size={20} />
+              Liked Names ({likedNames.length})
+            </LikedNamesTitle>
+
+            {likedNames.length === 0 ? (
+              <EmptyState>
+                No names liked yet. Start swiping right! 👉
+              </EmptyState>
+            ) : (
+              <NamesGrid>
+                {likedNames.map((name, index) => (
+                  <NameTag key={index}>
+                    {name}
+                  </NameTag>
+                ))}
+              </NamesGrid>
+            )}
+          </LikedNamesContainer>
         )}
       </AppWrapper>
     </Container>
