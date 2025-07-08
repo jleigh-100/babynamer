@@ -46,7 +46,6 @@ const babyNames = [
   "Harry",
   "Daniel",
   "David",
-  "Jamie",
 ];
 
 const BabyNamesSwipe = () => {
