@@ -10,14 +10,43 @@ import {
 } from './BabyNamesSwipe.styled.jsx';
 
 
+// const babyNames = [
+//   'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Isabella', 'Mason',
+//   'Sophia', 'William', 'Charlotte', 'James', 'Amelia', 'Benjamin', 'Mia',
+//   'Lucas', 'Harper', 'Henry', 'Evelyn', 'Alexander', 'Abigail', 'Michael',
+//   'Emily', 'Daniel', 'Elizabeth', 'Jacob', 'Sofia', 'Logan', 'Avery', 'Jackson',
+//   'Ella', 'Levi', 'Madison', 'Sebastian', 'Scarlett', 'Mateo', 'Victoria',
+//   'Jack', 'Aria', 'Owen', 'Grace', 'Theodore', 'Chloe', 'Aiden', 'Camila',
+//   'Samuel', 'Penelope', 'Joseph', 'Riley', 'John'
+// ];
+
 const babyNames = [
-  'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Isabella', 'Mason',
-  'Sophia', 'William', 'Charlotte', 'James', 'Amelia', 'Benjamin', 'Mia',
-  'Lucas', 'Harper', 'Henry', 'Evelyn', 'Alexander', 'Abigail', 'Michael',
-  'Emily', 'Daniel', 'Elizabeth', 'Jacob', 'Sofia', 'Logan', 'Avery', 'Jackson',
-  'Ella', 'Levi', 'Madison', 'Sebastian', 'Scarlett', 'Mateo', 'Victoria',
-  'Jack', 'Aria', 'Owen', 'Grace', 'Theodore', 'Chloe', 'Aiden', 'Camila',
-  'Samuel', 'Penelope', 'Joseph', 'Riley', 'John'
+"Ronald",
+"Richard",
+"Barry",
+"Rupert",
+"Lionel",
+"Charles",
+"Charlie",
+"Michael",
+"Austin",
+"Stuart",
+"Robert",
+"Edwin",
+"Ian",
+"John",
+"Andrew",
+"Taylor",
+"Cyril",
+"Lucas",
+"Tate",
+"Logan",
+"James",
+"Henry",
+"Harry",
+"Daniel",
+"David",
+"Jamie",
 ];
 
 const BabyNamesSwipe = () => {
