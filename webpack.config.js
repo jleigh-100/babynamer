@@ -3,16 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require("webpack");
 
 module.exports = {
-    plugins: [
-        // add this line to plugins
-
-    ],
-    
-}
-
-
-
-module.exports = {
   entry: './client/src/index.jsx',
   output: {
     filename: 'bundle.js',
