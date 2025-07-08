@@ -237,3 +237,13 @@ export const Button = styled.button`
   }
   margin-bottom: 10px;
 `;
+
+export const MatchedNamesContainer = styled.div`
+  width: 70vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr
+`;
+
+export const MatchedName = styled.p`
+  font-size: 3rem;
+`;

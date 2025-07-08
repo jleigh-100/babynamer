@@ -4,20 +4,23 @@ import {
   Container, AppWrapper, Title, CardContainer, Card, BackgroundCard, NameText,
   BackgroundNameText, SwipeIndicator, ButtonContainer, ActionButton, ProgressContainer,
   ProgressBar, ProgressFill, ProgressText, LikedNamesContainer, LikedNamesTitle, EmptyState,
-  NamesGrid, NameTag, FinishedContainer, FinishedCard, FinishedTitle, FinishedText, Button
+  NamesGrid, NameTag, FinishedContainer, FinishedCard, FinishedTitle, FinishedText, Button,
+  MatchedName,
+  MatchedNamesContainer
 } from './BabyNamesSwipe.styled.jsx';
 
 
+const babyNames = [
+  'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Isabella', 'Mason',
+  'Sophia', 'William', 'Charlotte', 'James', 'Amelia', 'Benjamin', 'Mia',
+  'Lucas', 'Harper', 'Henry', 'Evelyn', 'Alexander', 'Abigail', 'Michael',
+  'Emily', 'Daniel', 'Elizabeth', 'Jacob', 'Sofia', 'Logan', 'Avery', 'Jackson',
+  'Ella', 'Levi', 'Madison', 'Sebastian', 'Scarlett', 'Mateo', 'Victoria',
+  'Jack', 'Aria', 'Owen', 'Grace', 'Theodore', 'Chloe', 'Aiden', 'Camila',
+  'Samuel', 'Penelope', 'Joseph', 'Riley', 'John'
+];
+
 const BabyNamesSwipe = () => {
-  const babyNames = [
-    'Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Isabella', 'Mason',
-    // 'Sophia', 'William', 'Charlotte', 'James', 'Amelia', 'Benjamin', 'Mia',
-    // 'Lucas', 'Harper', 'Henry', 'Evelyn', 'Alexander', 'Abigail', 'Michael',
-    // 'Emily', 'Daniel', 'Elizabeth', 'Jacob', 'Sofia', 'Logan', 'Avery', 'Jackson',
-    // 'Ella', 'Levi', 'Madison', 'Sebastian', 'Scarlett', 'Mateo', 'Victoria',
-    // 'Jack', 'Aria', 'Owen', 'Grace', 'Theodore', 'Chloe', 'Aiden', 'Camila',
-    // 'Samuel', 'Penelope', 'Joseph', 'Riley', 'John'
-  ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [likedNames, setLikedNames] = useState([]);
@@ -140,8 +143,12 @@ const BabyNamesSwipe = () => {
                 {partnerSelectedList.length > 0 ? (
                   <div>
                     <h1>Matching names</h1>
-                    {matchingNames.map((name) => <p key={name}>{name}</p>)}
-                  </div>)
+                    <h2>These are the names you both agreed on!</h2>
+                  <MatchedNamesContainer>
+                    {matchingNames.map((name) => <MatchedName key={name}>{name}</MatchedName>)}
+                  </MatchedNamesContainer>
+                  </div>
+                )
                 :
                 <>
                   <Button onClick={() => handleShare()}><Share size={40}/>Share with a partner</Button>
@@ -203,7 +210,8 @@ const BabyNamesSwipe = () => {
           </ProgressText>
         </ProgressContainer>
 
-        <LikedNamesContainer>
+        {!isFinished && (
+          <LikedNamesContainer>
           <LikedNamesTitle>
             <Heart color="#ef4444" size={20} />
             Liked Names ({likedNames.length})
@@ -223,6 +231,7 @@ const BabyNamesSwipe = () => {
             </NamesGrid>
           )}
         </LikedNamesContainer>
+        )}
       </AppWrapper>
     </Container>
   );
