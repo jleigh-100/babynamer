@@ -183,7 +183,7 @@ const BabyNamesSwipe = () => {
                 )
                   :
                   <>
-                    <Button onClick={() => handleShare()}><Share size={40} />Share with a partner</Button>
+                    <Button onClick={() => handleShare()}><Share size={40} />Share with your partner</Button>
                     {showCopyToClipboard && <p>Link copied! Paste it in a message to them and see which names you both like!</p>}
                     <Button onClick={resetApp}>
                       <RotateCcw size={40} />
